@@ -1,0 +1,2164 @@
+#####################################
+File:“2019-06-20 group1chat.txt”
+#####################################
+user1:51,female
+user2:39,female
+
+match:1, answerer:user1, questioner:user2,start:"2019-06-20 10:24pm",level:easy
+
+今天开心吗？
+gloss:{self.todayE==开心}
+-
+是
+gloss:{yes}
+
+是快乐?
+gloss:{e==快乐}
+-
+是高兴
+gloss:{yes, e==高兴,synonyms}
+
+end:"2019-06-20 10:26pm", emotion:高兴, questions:2, outcome:success, time:2 mins
+
+
+match:2, answerer:user2,questioner:user1,start:"2019-06-20 10:30pm", level:easy
+
+你高兴吗
+gloss:{self.E==高兴}
+-
+不，我坐反地铁2次
+gloss:{no,hint}
+
+烦恼了吧
+gloss:{e==烦恼}
+-
+有点，还下了雨
+gloss:{a little,hint}
+
+倒霉
+gloss:{ associated(e,unlucky)}
+-
+也还好，是自己没看清
+gloss:{ fine, hint}
+
+自责
+gloss:{ e==自责}
+-
+答对了
+gloss:{ yes, cheer, done}
+
+[Grin]
+gloss:{cheer, emoticon}
+
+end:"2019-06-20 10:35pm",emotion:自责,questions:4, outcome:success, time:5 mins
+
+
+match:3, answerer:user1, questioner:user2, start:"2019-06-20 10:37pm", level:difficult
+
+心情好，对吗？
+gloss:{e.valence==good}
+-
+也好也不好
+gloss:{ambiguous}
+
+是纠结吗？
+gloss:{e==纠结}
+-
+不是
+gloss:{no}
+
+没有特别的感觉，就是平平静静的吗？
+gloss:{e==平静}
+-
+不是
+gloss:{no}
+
+是发生了什么事，让你为难了吗？
+gloss:{cause(something,e==为难)}
+-
+有点
+gloss:{a little}
+
+感觉尴尬吗？
+gloss:{e==尴尬}
+-
+好像也不是
+gloss:{possible:no}
+
+很忐忑吗？
+gloss:{e==忐忑}
+-
+不是
+gloss:{no}
+
+是个两难的选择吗？
+gloss:{ situation(e,self.hardChoice)}
+-
+不是，是一个别人做的选择
+gloss:{no, hint}
+
+让你哭笑不得吗？
+gloss:{cause(e,哭笑不得)}
+-
+达不到，本是好事
+gloss:{no, hint}
+
+现在变成对你不太好了吗？
+gloss:{cause(e,self.bad)}
+-
+也不是不好，也不影响结果，只是心情
+gloss:{no, hint}
+
+是感觉失落了吗？
+gloss:{e==失落}
+-
+[ThumbsUp][ThumbsUp]，失落
+gloss:{yes,done,emoticon}
+
+我有点惊讶，失落算心情好也不好吗？[Facepalm]
+gloss:{discussion,clarification}
+有点不好，美中不足
+gloss:{discussion,clarification:negative, notStrong}
+我要笑死了，感觉是读了不一样的九年义务教育呢[Sticker][Sticker]
+gloss:{teasing,emoticon}
+
+end:"2019-06-20 10:45pm",emotion:失落,questions:10, outcome:success, time:8 mins,discussion afterwards
+
+
+match:4, answerer:user2,questioner:user1,start:"2019-06-20 10:49pm", level:difficult
+
+是家里的事吗
+gloss:{associated(e,family)}
+-
+对的，今天跑外地办证
+gloss:{yes, hint}
+
+很麻烦
+gloss:{associated(e, troublesome)}
+-
+还下雨，鞋子，包都湿啦
+gloss:{yes, hint}
+
+糟糕
+gloss:{associated(e,terrible)}
+-
+不会，本来想买个拖鞋，没找到店
+gloss:{no, hint}
+
+不顺利，心情烦闷
+gloss:{associated(e,unlucky),e==烦闷}
+-
+有点接近了
+gloss:{no,hint}
+
+低落
+gloss:{e==低落}
+-
+还不是
+gloss:{no}
+
+烦恼
+gloss:{e==烦恼}
+-
+也不是, 早饭吃太早，现在饿了，可是路边没有吃东西的店
+gloss:{no, hint}
+-
+这还真不好猜，喝凉水都塞牙
+gloss:{non-ye-no,complain:difficult}
+-
+倒霉的孩子[Chuckle]
+gloss:{non-yes-no, teasing,emoticon}
+
+沮丧
+gloss:{e==沮丧}
+-
+不是，之前你说过一个很接近了
+gloss:{no,hint}
+
+郁闷
+gloss:{e==郁闷}
+-
+对了
+gloss:{yes}
+
+end:"2019-06-20 11:00pm",emotion:郁闷,questions:8, outcome:success, time:11 mins
+
+################################
+File:“2019-06-21 group2chat.txt”
+################################
+user3:24,female
+user4:32,female
+
+match:5, answerer:user3,questioner:user4,start:"2019-06-21 8:22am",level:easy
+
+是开心的吗？
+gloss:{subset（e, 开心）}
+-
+不是
+gloss:{no}
+
+是两个字的词吗？
+gloss:{word.length==2}
+-
+是的
+gloss:{yes}
+
+是很难过吗？
+gloss:{subset(e, 难过)}
+-
+心情比较down,但我觉得不算特别难过
+gloss:{no,clarification:down,e.activation<难过.activation}
+
+是低落吗？
+gloss:{e==低落}
+-
+不是
+gloss:{no}
+
+是伤感吗
+gloss:{e==伤感}
+-
+不是
+gloss:{no}
+
+是郁闷吗
+gloss:{e==郁闷}
+-
+也不是, 这个是因为某件事而产生的一种情绪
+gloss:{no, clarification:cause(something, e)}
+
+是委屈吗
+gloss:{e==委屈}
+-
+不是
+gloss:{no}
+
+是沮丧吗
+gloss:{e==沮丧}
+-
+是哒！
+gloss:{yes}
+
+end:"2019-06-21 8:32am",emotion:沮丧,questions:8, outcome:success, time:10 mins
+
+
+match:6, answerer:user4,questioner:user3,start:"2019-06-21 8:33am", level:easy
+
+是积极的心情吗？
+gloss:{e.valence==positive}
+-
+是的
+gloss:{yes}
+
+是愉快吗？
+gloss:{e==愉快}
+-
+不是
+gloss:{no}
+
+是开心吗？
+gloss:{e==开心}
+-
+不是
+gloss:{no}
+
+是两个字的吗？
+gloss:{word.length==2}
+-
+是的,是现在的一种感觉
+gloss:{yes,hint:e=self.currentState}
+
+是高兴吗？
+gloss:{e==高兴}
+-
+不是
+gloss:{no}
+
+是满足吗？
+gloss:{e==满足}
+-
+不是
+gloss:{no}
+
+是骄傲吗？
+gloss:{e==骄傲}
+-
+不是的，是工作一周后此刻的感觉
+gloss:{no,hint:afterOneWeekWork}
+
+是轻松吗？
+gloss:{e==轻松}
+-
+比较接近了
+gloss:{no,close}
+
+是放松呐？
+gloss:{e==放松}
+-
+是的[Joyful]
+gloss:{yes}
+
+感觉轻松是一种状态放松有一种主观努力或是外界帮助的意味
+gloss:{discussion,clarification}
+-
+end:"2019-06-21 8:40am",emotion:放松,questions:9, outcome:success, time:7 mins
+
+
+match:7, answerer:user3,questioner:user4,start:"2019-06-21 8:41am",level:difficult
+
+是消极的情绪吗？
+gloss:{e.valence==negative}
+-
+不是
+gloss:{no}
+
+是积极的情绪吗？
+gloss:{e.valence==positive}
+-
+对于情绪主体来说，是的
+gloss:{yes,clarification:self}
+
+是喜悦吗？
+gloss:{e==喜悦}
+-
+不是
+gloss:{no}
+
+是两个字的词吗
+gloss:{word.length==2}
+-
+是的
+gloss:{yes}
+
+是陶醉吗
+gloss:{e==陶醉}
+-
+不是
+gloss:{no}
+
+是畅快吗
+gloss:{e==畅快}
+-
+不是。
+gloss:{no}
+
+是狂喜的状态吗？
+gloss:{subset(e,狂喜)}
+-
+不是，这种情绪和个人当下或是近期的经历有关
+gloss:{no,hint:associated(e,currentState)}
+
+是欣慰吗？
+gloss:{e==欣慰}
+-
+不是
+gloss:{no}
+
+是经历了成功吗？
+gloss:{cause(success,e)}
+-
+是的
+gloss:{yes}
+
+是自豪吗？
+gloss:{e==自豪}
+-
+不是，但是意思相近
+gloss:{no,close}
+
+是骄傲吗
+gloss:{e==骄傲}
+-
+也不是
+gloss:{no}
+
+是满足吗？
+gloss:{e==满足}
+-
+不是
+gloss:{no}
+
+是享受吗
+gloss:{e==享受}
+-
+不是，和骄傲自豪的含义非常接近
+gloss:{no,close}
+
+是傲娇吗
+gloss:{e==傲娇}
+-
+哈哈哈哈，不是
+gloss:{no,humor}
+
+是光荣吗
+gloss:{e==光荣}
+-
+不是，别人对这个情绪的评价相对偏消极，但是情绪主体是很快乐的。
+gloss:{no, clarification:derogatory words,self.happy}
+
+是自大吗？
+gloss:{e==自大}
+-
+不是，但是有一点点这个意思
+gloss:{no,close}
+
+高傲吗
+gloss:{e==高傲}
+-
+不是的，这种情绪包含了一种满足感
+gloss:{no,clarification:situation(e,satisfied)}
+
+是得意吗
+gloss:{e==得意}
+-
+是哒，是得意?乛v乛?嘿嘿
+gloss:{yes,cheer,humor}
+
+end:"2019-06-21 9:01am",emotion:得意,questions:18, outcome:success, time:20 mins
+
+
+match:8, answerer:user4,questioner:user3,start:"2019-06-21 9:06am", level:difficult
+
+是积极情绪吗？
+gloss:{e.valence==positive}
+-
+是的
+gloss:{yes}
+
+是兴奋吗？
+gloss:{e==兴奋}
+-
+不是
+gloss:{no}
+
+是惊喜吗？
+gloss:{e==惊喜}
+-
+不是
+gloss:{no}
+
+是嘚瑟吗？
+gloss:{e==嘚瑟}
+-
+不是的[Sticker]，是一种此时此刻的状态
+gloss:{no,emoticon,hint:currentState}
+
+在前几轮中，有出现过吗？
+gloss:{appeared before}
+-
+没有
+gloss:{no}
+
+是欢快吗？
+gloss:{e==欢快}
+-
+不是，比较平静的一种状态
+gloss:{no,clarification:e.activation==low}
+
+是期待吗？
+gloss:{e==期待}
+-
+不是，跟我第一轮的词有点接近
+gloss:{no,hint:closeTo放松}
+
+是悠闲吗？
+gloss:{e==休闲}
+-
+不是
+gloss:{no}
+
+是放空吗？
+gloss:{e==放空}
+-
+不是
+gloss:{no}
+
+是两个字的吗？
+gloss:{word.length==2}
+-
+是的
+gloss:{yes}
+
+是轻快吗？
+gloss:{e==轻快}
+-
+不是，和一个演员的名字一样
+gloss:{no,hint:e==actor'sName}
+
+是宁静吗？
+gloss:{e==宁静}
+-
+不是呀，比宁静小
+gloss:{no,hint:yongerActor'sName}
+
+是舒畅吗？
+gloss:{e==舒畅}
+-
+是的，哈哈[Sticker]
+gloss:{yes,humor,emoticon}
+
+end:"2019-06-21 9:17am",emotion:舒畅,questions:13, outcome:success, time:11 mins
+
+
+###################################
+File:“2019-06-20 group3chat.txt”
+###################################
+user5:26,female
+user6:36,male
+
+match:9, answerer:user5,questioner:user6,start:"2019-06-20 11:44pm",level:easy
+
+你是不是心情很好？
+gloss:{e.valence==positive}
+-
+是
+gloss:{yes}
+
+你中午吃的好吗？
+gloss:{event(lunch==good)}
+-
+否
+gloss:{no}
+
+我觉得你想的是高兴或者愉快
+gloss:{e==高兴or愉快, synonyms}
+-
+对了[Facepalm]
+gloss:{yes, emoticon}
+
+end:"2019-06-20 11:46pm",emotion:高兴,questions:3, outcome:success, time:2 mins
+
+match:10, answerer:user6,questioner:user5,start:"2019-06-20 11:48pm",level:easy
+
+是一个积极的词吗？
+gloss:{e.valence==positve}
+-
+我估计你猜不出来，你只有看到我做了什么今天才能想到。给你提示很多了。是的
+gloss:{yes, hint:associated(e,Today’sEvent) }
+
+那是意外的收获吗？
+gloss:{ associated(e,unexpectedGain)}
+-
+不是意外
+gloss:{no}
+
+是工作让你这么有这种情绪吗
+gloss:{cause(work,e)}
+-
+不是上班
+gloss:{no}
+
+是因为计划的事情成功了吗？
+gloss:{cause(plannedEventSucceed,e)}
+-
+是的
+gloss:{yes}
+
+是得意忘形吗
+gloss:{e==得意忘形}
+-
+不是
+gloss:{no}
+
+那你的情绪很激动吗？
+gloss:{e==激动}
+-
+不激动
+gloss:{no}
+
+是开怀大笑吗
+gloss:{e==开怀大笑}
+-
+不是，是个简单的词
+gloss:{no, hint:easyWord}
+
+是2个字吗
+gloss:{word.length==2}
+-
+是
+gloss:{yes}
+
+是狂喜吗？[Facepalm]
+gloss:{e==狂喜}
+-
+没那么激动
+gloss:{no, hint:e.activation=weaker}
+
+欢喜或者愉快？
+gloss:{ e==欢喜or愉快}
+-
+对了
+gloss:{yes}
+
+end:"2019-06-21 12:01am",emotion:欢喜,questions:10, outcome:success, time:13 mins
+
+
+match:11, answerer:user5,questioner:user6,start:"2019-06-21 12:02am",level:difficult
+
+与你的工作或者学习有关吗？
+gloss:{associated(e, jobOrStudy)}
+-
+可以这么说
+gloss:{yes}
+
+你正在准备跳槽吗？
+gloss:{event==changeJob}
+-
+并没有，我明天就毕业啦
+gloss:{ no, hint:graduateTomorrow}
+
+那就是一种高兴但是又紧张的情绪。这个词是紧张吗？
+gloss:{e==nervous, clarification:happyAndNervous}
+-
+不是，和这几年的学生经历有关
+gloss:{no, hint:associated(e, studentExperienceCurrently)}
+
+当学生很辛苦。是辛苦吗？
+gloss:{e==辛苦}
+-
+不是，课题做的不好，所以论文发的也不好
+gloss:{no, hint:e.associated= badProjectAndBadPaper}
+
+是遗憾
+gloss:{e==遗憾}
+-
+这个词里边有遗憾，还可以再接近一点
+gloss:{no, hint:contains遗憾,close}
+
+四个字的吗？
+gloss:{word.length==4}
+-
+2个
+gloss:{no, 2}
+
+我想不出来了。后悔？
+gloss:{e==后悔}
+-
+比后悔情绪再强烈一点的
+gloss:{e.activation>e.后悔}
+
+郁闷
+gloss:{e==郁闷}
+-
+不对，后悔加上自责加上委屈[Facepalm]，甚至有些烦躁
+gloss:{no, clarification:后悔+自责+委屈+烦躁}
+
+悔恨？
+gloss:{e==悔恨}
+-
+差不多很接近了
+gloss:{prettyClose}
+
+差不多就行了。懊悔
+gloss:{e==懊悔}
+-
+懊恼
+gloss:{e==懊恼,synonyms}
+
+算我猜对了
+gloss:{yes, done, cheer, synonyms}
+-
+[ThumbsUp]
+gloss:{yes,emoticon}
+
+end:"2019-06-21 12:18am",emotion:懊恼,questions:10, outcome:success, time:16 mins
+
+match:12, answerer:user6,questioner:user5,start:"2019-06-20 12:19am",level:difficult
+
+还是一个很积极的词语吗
+gloss:{e.valence=positve}
+-
+选好了，不是
+gloss:{no}
+
+那是想做的事情受挫了吗
+gloss:{associated(e,setback) }
+-
+不是受挫了。
+gloss:{no}
+
+那是身边的人让你有这种不好的情绪吗
+gloss:{associated(e,other people)}
+-
+不是
+gloss:{no}
+
+是失望吗？
+gloss:{e==失望}
+-
+有一点
+gloss:{no,aLittle}
+
+那是沮丧吗
+gloss:{e==沮丧}
+-
+有一点
+gloss:{no,aLittle}
+
+是4个字吗
+gloss:{ word.length==4}
+-
+两个
+gloss:{no, 2}
+
+是对自己失望吗
+gloss:{directed(e,self),e==失望}
+-
+不是，很接近了
+gloss:{no, close}
+
+悲观？
+gloss:{e==悲观}
+-
+不是，悲观之后
+gloss:{no, hint:after悲观}
+
+灰心？
+gloss:{e==灰心}
+-
+高雅一点
+gloss:{no, hint:advancedABit}
+
+消沉？
+gloss:{e==消沉}
+-
+接近了，
+gloss:{no,close}
+
+那就是消极？ 黯然？
+gloss:{e==消极or黯然}
+-
+越来越近了，没这么高雅
+gloss:{closer, hint :notSoAdvanced}
+
+颓废？
+gloss:{e==颓废}
+-
+没这么不堪
+gloss:{no, hint:better, notSoBad}
+
+是丧气吗
+gloss:{e==丧气}
+-
+不是。太消极了
+gloss:{no, hint:weaker}
+
+悲观以后，是气馁吗？
+gloss:{e==气馁}
+-
+70%对了。可以了。我想的是无奈，
+gloss:{e==无奈,70% accuracy}
+
+end:"2019-06-21 12:39am",emotion:无奈,questions:14, outcome:failed, time:20 mins
+
+
+###############################
+File:“2019-06-21 group4chat.txt”
+###############################
+user7:33,female
+user8:24,female
+
+match:13, answerer:user7, questioner:user8, start:"2019-06-21 8:20am",level:easy
+
+1.是积极情绪的词语吗
+gloss:{e.valence==positive}
+-
+是
+gloss:{yes}
+
+2.是很容易出现的情绪吗
+gloss:{e.frequency==regularly}
+-
+是
+gloss:{yes}
+
+开心？
+gloss:{e==开心}
+-
+是，太棒了！
+gloss:{yes, done, cheer}
+
+end:"2019-06-21 8:22am",emotion:开心,questions:3, outcome:success, time:2 mins
+
+match:14, answerer:user8, questioner:user7, start:"2019-06-21 8:24am",level:easy
+
+1.是生活中很常见的情绪吗？
+gloss:{e.fruquency=regularly}
+-
+是
+gloss:{yes}
+
+2.是消极的情绪吗？
+gloss:{e.valence==negative}
+-
+是
+gloss:{yes}
+
+3.这种情绪会伴随泪水吗？
+gloss:{associated(e, crying)}
+-
+是
+gloss:{yes}
+
+哭泣？
+gloss:{e==cry}
+-
+不是
+gloss:{no}
+
+悲伤？
+gloss:{e==悲伤}
+-
+是 [Hey][Hey]
+gloss:{yes,cheer}
+
+end:"2019-06-21 8:25am",emotion:悲伤,questions:5, outcome:success, time:1 mins
+
+match:15, answerer:user7, questioner:user8, start:"2019-06-21 8:27am",level:difficult
+
+1.是关于积极情绪的吗
+gloss:{e.valence=positve}
+-
+不是
+gloss:{no}
+
+2.这种情绪强烈嘛
+gloss:{e.activation=strong}
+-
+不是
+gloss:{no}
+
+3.这种情绪常见吗
+gloss:{e.frequency==often}
+-
+是
+gloss:{yes}
+
+忧愁？
+gloss:{e==忧愁}
+-
+不是
+gloss:{no}
+
+愤怒？
+gloss:{e==愤怒}
+-
+不是
+gloss:{no}
+
+焦虑？
+gloss:{e==焦虑}
+-
+不是
+gloss:{no}
+
+4.这种情绪是在应激状态下发生的吗
+gloss:{situation(e,stressState)}
+-
+不是
+gloss:{no}
+
+嫉妒？
+gloss:{e==嫉妒}
+-
+不是
+gloss:{no}
+
+5.是因为某件事情失败而产生的吗
+gloss:{cause(failure,e)}
+-
+是
+gloss:{yes}
+
+自卑？
+gloss:{e==自卑}
+-
+不是
+gloss:{no}
+
+沮丧？
+gloss:{e==沮丧}
+-
+接近了
+gloss:{close}
+
+失落？
+gloss:{e==失落}
+-
+接近，是郁闷
+gloss:{close}
+
+啊是郁闷呀没想到[Facepalm][Facepalm]
+失落很接近了
+嗯嗯[Concerned]
+gloss:{discussion,synonyms}
+
+end:"2019-06-21 8:39am",emotion:郁闷,questions:11, outcome:success, time:12 mins, Synonyms
+
+
+match:16, answerer:user8, questioner:user7, start:"2019-06-21 8:48am",level:difficult
+1.是关于积极情绪的吗
+gloss:{e.valence==positve}
+-
+是
+gloss:{yes}
+
+2.生活中常见吗
+gloss:{e.frequency==regularly}
+-
+是
+gloss:{yes}
+
+3.得到荣誉时会有的情绪吗
+gloss:{associated(e,honor)}
+-
+是
+gloss:{yes}
+
+自豪
+gloss:{e==自豪}
+-
+对对对！
+gloss:{yes}
+
+哈哈，[Shy]
+gloss:{cheer,emoticon}
+
+end:"2019-06-21 8:50am",emotion:自豪,questions:4 , outcome:success, time:2 mins,
+
+
+match:17, answerer:user8, questioner:user7, start:"2019-06-21 8:59am",level:difficult
+
+1.是关于消极情绪的吗
+gloss:{e.valence==negative}
+-
+不是
+gloss:{no}
+
+1.是关于积极情绪的吗
+gloss:{e.valence==positive}
+-
+是
+gloss:{yes}
+
+2.生活中常见吗
+gloss:{e.frequency==regularly}
+-
+是
+gloss:{yes}
+
+3.情绪激烈吗？
+gloss:{e.activation==strong}
+-
+不是
+gloss:{no}
+
+4.情绪温和？
+gloss:{e.activation==mild}
+-
+是
+gloss:{yes}
+
+欣慰？
+gloss:{e==欣慰}
+-
+不是
+gloss:{no}
+
+5.这种情绪任何年龄段都可以有？
+gloss:{e.ageGroup==all}
+-
+不是
+gloss:{no}
+
+6.小孩子这种情绪比较多见？
+gloss:{e.frequency(children)==regularly}
+-
+不是
+gloss:{no}
+
+7.成年人这种情绪比较多见？
+gloss:{ e.frequency(adults)==regularly }
+-
+是
+gloss:{yes}
+
+淡定？
+gloss:{e==淡定}
+-
+对对对。[Hey] [Sticker]猜对啦
+gloss:{yes, emoticon, cheer}
+
+end:"2019-06-21 9:07am",emotion:淡定,questions:10 , outcome:success, time:8 mins,
+
+match:18, answerer:user7, questioner:user8, start:"2019-06-21 9:12am",level:difficult
+
+1.是积极情绪吗
+gloss:{e.valence==positive}
+-
+不是
+gloss:{no}
+
+2.生活中常见吗
+gloss:{e.frequency==regularly}
+-
+是
+gloss:{yes}
+
+3.情绪强烈吗
+gloss:{e.activation==strong}
+-
+不是
+gloss:{no}
+
+4.是因为对某件事情或者某种行为不满意产生的吗
+gloss:{cause(unsatisfaction, e)}
+-
+不完全是
+gloss:{ambiguous}
+
+悔恨？
+gloss:{e==懊悔}
+-
+不是
+gloss:{no}
+
+5.是因为某件事情没有达到预期结果吗
+gloss:{cause( notAchieveExpectedResult,e)}
+-
+可以这么说，但不完全是
+gloss:{ambiguous}
+
+失望？
+gloss:{e==失望}
+-
+不是
+gloss:{no}
+
+怀疑？
+gloss:{e==怀疑}
+-
+不是
+gloss:{no}
+
+6.这种情绪在学习上出现的多吗
+gloss:{e.frequency(study)==regularly}
+-
+不
+gloss:{no}
+
+7.在人际交往中出现的多吗
+gloss:{e.frequency(social)==regularly}
+-
+相对学习多
+gloss:{e.frequency(social)>e.frequency(study)}
+
+自卑？
+gloss:{e==自卑}
+-
+不
+gloss:{no}
+
+挫败？
+gloss:{e==挫败}
+-
+不
+gloss:{no}
+
+8.这种情绪是男生比较多吗
+gloss:{e.frequency(boys)==regualrly}
+-
+不分性别
+gloss:{ambiguous}
+
+沮丧？
+gloss:{e==沮丧}
+-
+不
+gloss:{no}
+
+9.这种情绪持续时间长吗
+gloss:{e.duration==long}
+-
+对
+gloss:{yes}
+
+郁闷？抑郁？
+gloss:{e==郁闷/抑郁}
+-
+不是这个猜过了[Facepalm] 不是
+gloss:{no, hint:repeat,emoticon}
+
+[Facepalm][Facepalm] 担忧？
+gloss:{e==担忧,emoticon}
+-
+不
+gloss:{no}
+
+end:"2019-06-21 9:48am",emotion:压抑,questions:20, outcome:failed, time:36 mins,
+
+
+#####################################
+File:“2019-06-21 group5chat.txt”
+#####################################
+user9:30,female
+user10:19,female
+
+match:19, answerer:user9,questioner:user10,start:"2019-06-21 10:20am",level:easy
+
+你今天很开心是吗
+gloss:{e(self.currentState)==开心}
+-
+是的
+gloss:{yes}
+
+我猜那个词是开心，哈哈哈哈哈哈
+gloss:{e==开心,humor}
+-
+是的, [Rose]
+gloss:{yes, emoticon}
+
+end:"2019-06-21 10:21am", emotion:开心,questions:2, outcome:success, time:1 mins
+
+
+match:20, answerer:user10, questioner:user9,start:"2019-06-21 10:21am", level:easy
+
+是郁闷之类的是吗？
+gloss:{similar(e,郁闷)}
+-
+是的
+gloss:{yes}
+
+郁闷是吗
+gloss:{e==郁闷}
+-
+是，哈哈哈
+gloss:{yes,humor}
+
+end:"2019-06-21 10:22am",emotion:郁闷,questions:3, outcome:success, time:1 mins
+
+
+match:21, answerer:user9,questioner:user10,start:"2019-06-21 10:23am",level:difficult
+
+是四个字的词吗
+gloss:{word.length==4}
+-
+不是
+gloss:{no}
+
+是开心的吗
+gloss:{subset(e,开心)}
+-
+不会是之前的词
+gloss:{no, hint:notFromHistroy}
+
+我懂我是问是开心的情绪吗
+gloss:{subset (e, happy)}
+-
+不是
+gloss:{no}
+
+是关于感情的吗
+gloss:{subset ( e, 感情)}
+-
+很多人把这个词用在感情方面, 也可以用在别的事情上
+gloss:{yes, hint:in feeling and other things }
+
+是痛不欲生吗
+gloss:{e==痛不欲生}
+-
+不对两个字的
+gloss:{no,hint:word.length==2}
+
+是痛苦吗
+gloss:{e==痛苦}
+-
+不算痛苦，是两个字的
+gloss:{no,hint:word.Length==2}
+
+是忧虑吗
+gloss:{e==忧虑}
+-
+我觉得有部分忧虑的情绪在
+gloss:{yes,partOf.Qualification:subjective}
+
+相思吗
+gloss:{e==相思}
+-
+不是，是左右为难的感觉
+gloss:{no, hint:inAdilemma}
+
+焦灼
+gloss:{e==焦灼}
+-
+没这么严重吧
+gloss:{no, too much}
+
+尴尬吗
+gloss:{e==尴尬}
+-
+尴尬像是结果，是不知道结果的过程
+gloss:{no, clarification }
+
+无奈
+gloss:{e==无奈}
+-
+也不是，是这个过程让我拿不定主意
+gloss:{no, hint}
+
+犹豫
+gloss:{e==犹豫}
+-
+我觉得差不多是了, 我想的词是纠结
+gloss:{yes, e==纠结,Qualification:subjective , Synonyms }
+
+
+end:"2019-06-21 10:37am",emotion:纠结(synonyms),questions:12, outcome:success, time:14mins
+
+match:22, answerer:user10, questioner:user9, start:"2019-06-21 10:38am", level:difficult
+
+是高兴的反义词吗
+gloss:{ e==高兴.antonym)}
+-
+是
+gloss:{yes}
+
+程度很深吗？类似极度不高兴吗
+gloss:{e.activation==high}
+-
+不也是极度不高兴,就是很难受说不出的感觉
+gloss:{no,clarification}
+
+憋屈，是吗
+gloss:{e==憋屈}
+-
+不是的，是四个字的
+gloss:{no, hint:word.Length==4}
+
+有苦难言吗
+gloss:{e==有苦难言}
+-
+也不至于有苦难言，是心里很躁动
+gloss:{no, hint:e.activation< 有苦难言,clarification}
+
+焦躁不安吗
+gloss:{e==焦躁不安}
+-
+挺接近的，但是不太准确
+gloss:{no, close}
+
+忐忑不安
+gloss:{e==忐忑不安}
+-
+是心里很乱
+gloss:{no, hint:keyword:乱}
+
+心乱如麻
+gloss:{e==心乱如麻}
+-
+对了，[呲牙]
+gloss:{yes,emoticon}
+
+end:"2019-06-21 10:45am",emotion:心乱如麻,questions:7, outcome:success, time:7 mins
+
+
+
+#####################################
+File:“2019-06-21 group6chat.txt”
+#####################################
+user11:37,female
+user12:35,female
+
+match:23, answerer:user11, questioner:user12,start:"2019-06-21"
+9:05am", level:easy
+
+是开心的吗？
+gloss:{e==开心}
+-
+否
+gloss:{no}
+
+最伤心的吗？
+gloss:{e==伤心}
+-
+是
+gloss:{yes}
+难过呀。[Facepalm]
+gloss:{e==难过}
+end:"2019-06-21 9:18am",emotion:伤心（难过）,questions:2 , outcome:success,synonyms, time:13mins  (delete)
+
+
+
+match:24, answerer:user12, questioner:user11,start:"2019-06-21 9:22am", level:easy
+
+是积极情绪吗
+gloss:{e.valence=positive}
+-
+不是
+gloss:{no}
+
+是日常中常见的吗？
+gloss:{e.frequency==regularly}
+-
+还挺常见的
+gloss:{yes}
+
+是那种很强烈的情绪吗？
+gloss:{e.activation==strong}
+-
+程度不同，有时候很强烈，有时候很微弱
+gloss:{ambiguous}
+
+生气？
+gloss:{e==生气}
+-
+不是。有时候是积极，有时候是消极
+gloss:{no,hint:ambiguous}
+
+哈哈哈，不行，需要提示。[Facepalm]
+gloss:{non-yes-no, askForAHint,emoticon}
+-
+上面这一条很重要，中性，有时候会起到积极作用，有时候起到消极作用的情绪）
+gloss:{hint}
+
+紧张？
+gloss:{e==紧张}
+-
+对啦
+gloss:{yes}
+
+end:"2019-06-21 9:28am",emotion:紧张,questions:5, outcome:success, time:6 mins
+
+
+match:25, answerer:user11, questioner:user12, start:"2019-06-21 9:31am", level:difficult
+
+是让人愉悦的情绪吗？
+gloss:{cause(e,happy)}
+-
+不是的。
+gloss:{ no }
+
+是日常生活频繁会发生的吗？
+gloss:{e.frequency==rugularly}
+-
+分人吧。
+gloss:{ambiguous}
+
+是只限恋人之间的吗？
+gloss:{situation(e,onlyBetweenLovers)}
+-
+恋人之间不多，貌似。
+gloss:{no, uncertain,ambiguous}
+
+是一般持续时间很长的吗？
+gloss:{e.duration==long}
+-
+反正比一般的要长点。
+gloss:{longerThanNormal}
+
+是健康的情绪吗？
+gloss:{healthy(e)}
+-
+正常的情绪，不分健不健康。
+gloss:{normal}
+
+是伤心失望一类的吗？
+gloss:{similar(e,伤心失望)}
+-
+不是的。 有些果断的人可能时间短点。 人们做选择的时候通常会？
+gloss:{no, hint}
+
+是遗憾后悔类的吗？
+gloss:{similar(e,遗憾后悔)}
+-
+不是的。
+gloss:{no}
+
+纠结吗？
+gloss:{e==纠结}
+-
+选择的时候会？是的
+gloss:{yes}
+
+end:"2019-06-21 9:42am",emotion:纠结,questions:9 , outcome:success, time:11 mins
+
+match:26, answerer:user12, questioner:user11, start:"2019-06-21 9:45am", level:difficult
+
+首先，负面情绪吗？
+gloss:{e.valence==negative}
+-
+不是
+gloss:{no}
+
+常见吗？[Facepalm]
+gloss:{e.frequency==regularly,emociton}
+-
+不常见
+gloss:{notOften}
+
+情绪很强烈吗？
+gloss:{e.activation==strong}
+-
+嗯，挺强烈的
+gloss:{yes}
+
+你会想要一直有这种情绪吗？
+gloss:{desirable(e)}
+-
+嗯，感觉还不错，不过也不需要一直都有，偶尔就可以
+gloss:{occasionally, good}
+
+兴奋？
+gloss:{e==兴奋}
+-
+结果是兴奋类似
+gloss:{similar(e.result,兴奋)}
+
+惊喜吗？
+gloss:{e==惊喜}
+-
+嗯嗯
+gloss:{yes}
+
+end:"2019-06-21 9:52am",emotion:惊喜,questions:6 , outcome:success, time:7 mins
+
+#####################################
+File:“2019-06-21 group7chat.txt”
+#####################################
+user13:38,female
+user14:32,female
+
+match:27, answerer:user13, questioner:user14, start:"2019-06-21 10:00am", level:easy
+
+这种情绪会在工作不顺利的时候有吗？
+gloss:{situation(e,workNotGoingWell)}
+-
+是
+gloss:{yes}
+
+烦躁[Grin]
+gloss:{e==烦躁,emoticon}
+-
+不是
+gloss:{no}
+
+压力大的时候有吗？
+gloss:{situation(e,pressure)}
+-
+是
+gloss:{yes}
+
+受周围同事影响吗？
+gloss:{assoicated(e,colleaguesAround)}
+-
+不太受影响
+gloss:{notSoMuch}
+
+下一个就轮到你做工作汇报了，会有这种情绪吧
+gloss:{ situation(e,workingPresentationNext)}
+-
+没有
+gloss:{no}
+
+在家里会有这种情绪吗？
+gloss:{situation(e,home)}
+-
+在家里也会有这种情绪
+gloss:{yes}
+
+郁闷
+gloss:{e==郁闷}
+-
+比这个严重点
+gloss:{no,e.activation >郁闷.activation}
+
+压抑
+gloss:{e==压抑}
+-
+不是
+gloss:{no}
+
+沮丧
+gloss:{e==沮丧}
+-
+差不多但不一样。不开心的时候多有这种情绪
+gloss:{no, close,Hint:associatedWithSad}
+
+我这语文水平都想不起来几个词[Cry] 。伤感？ 忧伤？
+gloss:{emoticon, e==伤感/忧伤}
+-
+bingo。我想的是悲伤
+gloss:{yes,e==悲伤, Synonyms}
+
+跟忧伤同义词吧
+[Grin][Grin][Grin]，算是吧
+gloss:{discussion,synonyms}
+
+end:"2019-06-21 10:12am",emotion:悲伤,questions:10, outcome:success, time:12 mins, synonyms
+
+
+match:28, answerer:user14, questioner:user13, start:"2019-06-21 10:15am", level:easy
+
+跟孩子一起会有这种情绪吗
+gloss:{situation(e,withKids)}
+-
+会的
+gloss:{yes}
+
+幸福
+gloss:{e==幸福}
+-
+[ThumbsUp][ThumbsUp]
+gloss:{yes, emoticon, cheers}
+
+end:"2019-06-21 10:16am",emotion:幸福,questions:2, outcome:success, time:1 mins
+
+
+match:29, answerer:user13, questioner:user14, start:"2019-06-21 10:19am", level:difficult
+
+闻到怪味的时候会有这种情绪吗？
+gloss:{situation(e,smellWierdThings)}
+-
+不会
+gloss:{no}
+
+吃了美食会有这种情绪吗？
+gloss:{situation(e, eatDeliciousFood)}
+-
+会
+gloss:{yes}
+
+偶遇老友会有这种情绪吗？
+gloss:{situation(e,meetWithOldFriends)}
+-
+算有吧
+gloss:{sort of}
+
+雨过天晴看到彩虹，会有这种情绪吗？
+gloss:{situation(e,seeRainbowAfterRaining)}
+-
+算有吧
+gloss:{sort of}
+
+儿子考了100分，有这种情绪吗？
+gloss:{situation(e,sonGetFullScoreInTest)}
+-
+会有
+gloss:{yes}
+
+满足[Shocked]
+gloss:{e==满足,emoticon}
+-
+我这个有点难啊，同义词有点多，但又感觉不一样
+gloss{no, hint:difficult,manySynonyms}
+
+陶醉[Shocked]
+gloss:{e==陶醉, emoticon}
+-
+差了点。吃了美食喝点小酒
+gloss:{notEnough.Hint:situation:eat delicious and drink}
+
+沉醉？痛快？
+gloss:{e==痛快}
+-
+对啦
+gloss:{yes}
+
+end:"2019-06-21 10:28am",emotion:痛快,questions:8 , outcome:success, time:9 mins
+
+match:30, answerer:user14, questioner:user13, start:"2019-06-21 10:30am", level:difficult
+
+负面情绪？
+gloss:{e.valence=negative}
+-
+不是
+gloss:{no}
+
+遇到喜欢的东西
+gloss:{situation(e, meetFavouriteThings)}
+-
+不是
+gloss:{no}
+
+感激？
+gloss:{e==感激}
+-
+不是
+gloss:{no}
+
+遇到自豪的事情?
+gloss:{e==自豪}
+-
+哈哈，你太厉害了，我想的是自豪
+gloss:{yes}
+
+end:"2019-06-21 10:34am",emotion:自豪,questions:4 , outcome:success, time:4 mins
+
+
+
+#####################################
+File:“2019-06-21 group8chat.txt”
+#####################################
+user15:37,female
+user16:35,female
+
+match:31, answerer:user15, questioner:user16, start:"2019-06-21 10:03am", level:easy
+
+是开心吗
+gloss:{e==开心}
+-
+否
+gloss:{no}
+
+是愉快吗
+gloss:{e==愉快}
+-
+否
+gloss:{no}
+
+是兴奋吗
+gloss:{e==兴奋}
+-
+否
+gloss:{no}
+
+是高兴吗
+gloss:{e==高兴}
+-
+否
+gloss:{no}
+
+嗯嗯，我觉得来点提示好一点[Grin]。是难过吗
+gloss:{e==难过}
+-
+否。但接近了
+gloss:{no, close}
+
+是悲伤吗
+gloss:{e==悲伤}
+-
+否，但意思对了
+gloss:{no, synonyms}
+
+是伤心吗
+gloss:{e==伤心}
+-
+是[Smile]
+gloss:{yes,emoticon}
+
+end:"2019-06-21 10:07am",emotion:伤心,questions:7 , outcome:success, time:4 mins
+
+match:32, answerer:user16, questioner:user15, start:"2019-06-21 10:08am", level:easy
+
+是积极的吗？
+gloss:{e.valence==positive}
+-
+否
+gloss:{no}
+
+消极的？
+gloss:{e.valence==negative}
+-
+是
+gloss:{yes}
+
+是小朋友也会用的简单的词吗？
+gloss:{e(difficulty)==childrenCanUse}
+-
+否。稍难一点
+gloss:{no, harder}
+
+上一轮出现过吗？
+gloss:{appearedBefore}
+-
+否
+gloss:{no}
+
+郁闷？
+gloss:{e==郁闷}
+-
+否
+gloss:{no}
+
+是同义词吗？
+gloss:{ 郁闷.synonyms}
+-
+否，遇到生气的事
+gloss:{no, hint:situation(e, angryThings)}
+
+气愤
+gloss:{e==气愤}
+-
+是
+gloss:{yes}
+
+end:"2019-06-21 10:13am",emotion:气愤,questions:7 , outcome:success, time:5 mins
+
+match:33, answerer:user15, questioner:user16, start:"2019-06-21 10:15am", level:difficult
+
+是积极的
+gloss:{e.valence==positive}
+-
+否
+gloss:{no}
+
+愤怒
+gloss:{e==愤怒}
+-
+否、是四个字的
+gloss:{no,hint:word.length==4}
+
+是悲伤的情绪吗
+gloss:{subset(e,悲伤)}
+-
+对
+gloss:{yes}
+
+伤心欲绝
+gloss:{e==伤心欲绝}
+-
+否，和悲伤稍微有点不同的情绪
+gloss:{no,aLittleDifferent}
+
+泣不成声
+gloss:{e==泣不成声}
+-
+否没有哭
+gloss:{no, hint:noCry}
+
+心如刀割
+gloss:{e==心如刀割}
+-
+没那么强烈
+gloss:{e.activation< 心如刀割.activation}
+
+闷闷不乐
+gloss:{e==闷闷不乐}
+-
+接近啦，同义的
+gloss:{close, synonyms}
+
+愁眉不展
+gloss:{e==愁眉不展}
+-
+不是
+gloss:{no}
+
+郁郁寡欢
+gloss:{e==郁郁寡欢}
+-
+对啦
+gloss:{yes}
+
+end:"2019-06-21 10:21am", emotion:郁郁寡欢,questions:9 , outcome:success, time:6 mins
+
+match:34, answerer:user16, questioner:user15, start:"2019-06-21 10:24am", level:difficult
+
+积极的？
+gloss:{e.valence==positive}
+-
+是
+gloss:{yes}
+
+四字？
+gloss:{word.length==4}
+-
+是
+gloss:{yes}
+
+快乐有关的？
+gloss:{assoiciated(e,happyness)}
+-
+是
+gloss:{yes}
+
+喜不自胜
+gloss:{e==喜不自胜}
+-
+否
+gloss:{no}
+
+欢天喜地
+gloss:{e==欢天喜地}
+-
+否。情绪浓厚一点。情绪再浓厚一点
+gloss:{no,hint:e.activation>欢天喜地.activation}
+
+网络语言？
+gloss:{internet slang(e)}
+-
+否
+gloss:{no}
+
+喜出望外？
+gloss:{e==喜出望外}
+-
+再浓烈一些，我说过的一个词的反义词
+gloss:{no,hint:stronger, antonymOfHistory}
+
+想不到浓烈的了，笑逐言开？
+gloss:{e==笑逐颜开}
+-
+心如刀割相反的
+gloss:{no, hint:e==心如刀割.antonym}
+
+喜上眉梢？
+gloss:{e==喜上眉梢}
+-
+否
+gloss:{no}
+
+欣喜若狂
+gloss:{e==欣喜若狂}
+-
+心打头的
+gloss:{no,hint:startWith心}
+
+心花怒放！
+gloss:{e==心花怒放}
+-
+[Peace][ThumbsUp] 是
+gloss:{yes, emoticon}
+
+end:"2019-06-21 10:32am",emotion:心花怒放,questions:11 , outcome:success, time:8 mins
+
+#####################################
+File:“2019-06-22 group9chat.txt”
+#####################################
+user17:37,male
+user18:29,male
+
+match:35, answerer:user17, questioner:user18, start:"2019-06-22 6:53pm", level:easy
+
+是生气么
+gloss:{e==生气}
+-
+不是
+gloss:{no}
+
+是好情绪么
+gloss:{e.valence==good}
+-
+是
+gloss:{yes}
+
+是高兴么
+gloss:{e==高兴}
+-
+对
+gloss:{yes}
+
+end:"2019-06-22 6:54pm",emotion:高兴,questions:3 , outcome:success, time:1 mins
+
+match:36, answerer:user18, questioner:user17, start:"2019-06-22 6:54pm", level:easy
+
+是高兴吗
+gloss:{e==高兴}
+-
+是
+gloss:{yes}
+
+end:"2019-06-22 6:55pm",emotion:高兴,questions:1 , outcome:success, time:1 mins
+
+match:37, answerer:user17, questioner:user18, start:"2019-06-22 6:57pm", level:difficult
+
+是正面的么
+gloss:{e.valence==positive}
+-
+不是
+gloss:{no}
+
+是纠结的么
+gloss:{subset(e,纠结)}
+-
+是
+gloss:{yes}
+
+是平静的么
+gloss:{e==平静}
+-
+对啦
+gloss:{yes}
+
+end:"2019-06-22 6:59pm",emotion:平静,questions:3 , outcome:success, time:2 mins
+
+match:38, answerer:user18, questioner:user17, start:"2019-06-22 7:00pm", level:difficult
+
+是兴奋吗
+gloss:{e==兴奋}
+-
+不是
+gloss:{no}
+
+是生气吗
+gloss:{e==生气}
+-
+类似
+gloss:{similar}
+
+是低落吗
+gloss:{e==低落}
+-
+类似
+gloss:{similar}
+
+是哀思吗
+gloss:{e==哀思}
+-
+对
+gloss:{yes}
+
+end:"2019-06-22 7:08pm",emotion:哀思,questions:4 , outcome:success, time:8 mins
+
+#####################################
+File:“2019-06-22 group10chat.txt”
+#####################################
+user19:37,male
+user20:35,male
+
+match:39, answerer:user19, questioner:user20, start:"2019-06-22 7:12pm", level:easy
+
+心情好否
+gloss:{e.valence==good}
+-
+不错
+gloss:{yes}
+
+开心吗
+gloss:{e==开心}
+-
+是
+gloss:{yes}
+
+end:"2019-06-22 7:14pm",emotion:开心,questions:2 , outcome:success, time:2 mins
+
+match:40, answerer:user20, questioner:user19, start:"2019-06-22 7:16pm", level:easy
+
+在美国生活寂寞不
+gloss:{e(self.currentState)==寂寞}
+-
+偶尔觉得寂寞
+gloss:{occasionally}
+
+在美国大部分时间过得开心？
+gloss:{e(self.regularState}==开心}
+-
+是的
+gloss:{yes}
+
+现在高兴吗？
+gloss:{e(currentState)==高兴}
+-
+我的心情比较中间
+gloss:{no, hint:middle}
+
+是淡定吧？
+gloss:{e==淡定}
+-
+高兴伤心中间，差不多。换一个
+gloss:{no,similar}
+
+平静？
+gloss:{e==平静}
+-
+是
+gloss:{yes}
+
+end:"2019-06-22 7:22pm",emotion:平静,questions:5 , outcome:success, time:6 mins
+
+match:41, answerer:user19, questioner:user20, start:"2019-06-22 7:23pm", level:difficult
+
+就回国了激动吗开心吗
+gloss:{ e(gobackhome)==开心}
+-
+不是很开心
+gloss:{not really}
+
+会想念美国生活吗
+gloss:{missingLifeHere }
+-
+会想念，来了一年了，还有点不舍得回去
+gloss:{yes, notWillingToGo}
+
+忧伤吗
+gloss:{e==忧伤}
+-
+有一点
+gloss:{a little}
+
+怀念吗
+gloss:{e==怀念}
+-
+会的
+gloss:{yes}
+
+猜的方向对吗
+gloss:{guessing direction}
+-
+对的，不舍、无奈的那种感觉
+gloss:{yes,clarification}
+
+无可奈何？
+gloss:{e==无可奈何}
+-
+不是，两个字
+gloss:{no, hint:word.length==2}
+
+前面发的信息有两个字之一吗
+gloss:{appeared before}
+-
+有点忧愁的感觉
+gloss:{no, hint:contains忧愁}
+
+忧伤忧虑伤感？
+gloss:{e==忧伤/忧虑/伤感,synonyms}
+-
+不是
+gloss:{no}
+
+是什么样的心情呢
+gloss:{non-yes-no,clarification}
+-
+忧伤、伤感、失意的心情
+gloss:{clarification}
+
+忧郁
+gloss:{e==犹豫}
+-
+不是
+gloss:{no}
+
+有忧子吗
+gloss:{e.contains(“忧”)}
+-
+没有忧字
+gloss:{no}
+
+伤呢？
+gloss:{e.contains(“伤”)}
+-
+也没有，都有竖心旁
+gloss:{no, hint:words tructure}
+惆怅
+gloss:{e==惆怅}
+
+end:"2019-06-22 7:42pm",emotion:惆怅,questions:12 , outcome:success, time:19 mins, failed( give up)
+
+match:42, answerer:user20, questioner:user19, start:"2019-06-22 7:44pm", level:difficult
+
+不开心的感觉？
+gloss:{subset(e,不开心)}
+-
+有点儿意思
+gloss:{aLittle}
+
+带伤感吗？
+gloss:{e.contains(伤感)}
+-
+不是很伤感有点儿不知道该怎么样做的意思
+gloss:{no, clarification:don’t KnowWhatToDo}
+
+不知所措，是这个词吗？
+gloss:{e==不知所措}
+-
+接近了。两个字
+gloss:{close,hint:word.length= 2}
+
+无奈？
+gloss:{e==无奈}
+-
+远了。不知是什么
+gloss:{no,colder}
+
+纠结？
+gloss:{e==纠结}
+-
+对未来的发展缺少明确定位。不对。
+gloss:{no,hint:relatedToFuture}
+
+迷茫？
+gloss:{e==迷茫}
+-
+对了
+gloss:{yes}
+
+end:"2019-06-22 7:44pm",emotion:迷茫,questions:6 , outcome:success, time:7 mins
+
+
+#####################################
+File:“2019-06-22 group11chat.txt”
+#####################################
+user21:35,male
+user22:34,male
+
+match:43, answerer:user21, questioner:user22, start:"2019-06-22 7:29pm", level:easy
+
+是比较容易猜的吗
+gloss:{e.difficulty==easy}
+-
+是
+gloss:{yes}
+
+是喜怒哀乐之中的一个吗
+gloss:{subset(e,喜怒哀乐)}
+-
+是
+gloss:{yes}
+
+是关于喜的吗
+gloss:{associated(e,喜)}
+-
+是
+gloss:{yes}
+
+是高兴吗
+gloss:{e==高兴}
+-
+是
+gloss:{yes}
+
+end:"2019-06-22 7:30pm",emotion:高兴,questions:4 , outcome:success, time:1 mins
+
+match:44, answerer:user22, questioner:user21, start:"2019-06-22 7:31pm", level:easy
+
+是喜怒哀乐之中的一个吗
+gloss:{subset(e,喜怒哀乐)}
+-
+是
+gloss:{yes}
+
+是高兴吗
+gloss:{e==happy}
+-
+不是
+gloss:{no}
+
+悲？
+gloss:{e==悲}
+-
+是
+gloss:{yes}
+
+end:"2019-06-22 7:31pm",emotion:悲,questions:3 , outcome:success, time:1 mins
+
+match:45, answerer:user21, questioner:user22, start:"2019-06-22 7:33pm", level:difficult
+
+是快乐吗
+gloss:{e==快乐}
+-
+不是
+gloss:{no}
+
+是悲伤吗
+gloss:{e==悲伤}
+-
+不
+gloss:{no}
+
+愤怒
+gloss:{e==愤怒}
+-
+对
+gloss:{yes}
+
+end:"2019-06-22 7:34pm",emotion:愤怒,questions:3 , outcome:success, time:1 mins
