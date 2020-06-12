@@ -41,6 +41,10 @@ play emo20q in Chinese.
 	```
 	./emo20q/data.py -e
 	```
+  - generate html docs from the annotation/gloss file
+	```
+	./emo20q/data.py -w docs
+	```
 	
 ## To Do's 
 
