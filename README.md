@@ -13,6 +13,12 @@ play emo20q in Chinese.
 - the github pages: https://abecode.github.io/emo20q-cn/
 - private repo (contains raw data that may have private info, available to students who have completed IRB training): https://github.com/abecode/emo20q-cn-private
 
+## Getting Started
+
+```
+pip3 install -r requirements.txt
+```
+
 ## Past Work
 
 - [English EMO20Q](https://github.com/abecode/emotion-twenty-questions)
