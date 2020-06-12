@@ -23,7 +23,7 @@ class HumanHumanTournament(Tournament):
 #        self.base = Base()
         if not annotationFile:
             import os
-            annotationFile = os.path.dirname(__file__) + "/../wechat_pilot/emo20q_glossing_final.txt"
+            annotationFile = os.path.dirname(__file__) + "/../wechat_pilot/emo20q_glossing_final_anonymous.txt"
         f = open(annotationFile, 'r', encoding="utf-8")
         try:
             self._games = [m for m in self.readGames(f)]
