@@ -25,10 +25,14 @@ play emo20q in Chinese.
 	
 ## Current Work
 
-- Collecting human-human emo20q in Chinese
-
+- Human-human emo20q in Chinese collected from WeChat (raw files not available publicly due to private data)
 	```
-	./wechat_pilot
+	./wechat_pilot/groupchat*txt
+	```
+- Annotations/glosses
+	```
+	./wechat_pilot/emo20q_glossing_final.txt # not available publically
+	./wechat_pilot/emo20q_glossing_final_anonymous.txt
 	```
 
 - some scripts:
@@ -41,7 +45,7 @@ play emo20q in Chinese.
 	```
 	./emo20q/data.py -e
 	```
-  - generate html docs from the annotation/gloss file
+  - generate html ./docs directory from the annotation/gloss file
 	```
 	./emo20q/data.py -w docs
 	```
