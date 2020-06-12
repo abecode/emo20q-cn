@@ -58,3 +58,12 @@ play emo20q in Chinese.
 - IDEA: study use of WeChat emojis
 
 - ...
+
+## Contributors and Maintainers
+
+Because this repository is a public version of a more active private 
+repository, many commits have been removed/squashed and thus we acknowledge 
+contributions here.
+
+- Shanshan Kong [@sskong85](https://github.com/sskong85) collected and annotated the data on WeChat
+- Abe Kazemzadeh [@abecode](https://github.com/abecode) maintains the repository and is the point of contact with the [University of St. Thomas IRB](https://stthomas.edu/irb)
