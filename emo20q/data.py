@@ -6,13 +6,11 @@ import re
 import sys
 
 class Tournament():
-    def games(self):
-        return self._games
     def __add__(self,other):
         t = Tournament()
-        t._games = []
-        t._games.extend(self.games())
-        t._games.extend(other.games())
+        t.games = []
+        t.games.extend(self.games)
+        t.games.extend(other.games)
         return t
 
 
@@ -26,7 +24,7 @@ class HumanHumanTournament(Tournament):
             annotationFile = os.path.dirname(__file__) + "/../wechat_pilot/emo20q_glossing_final_anonymous.txt"
         f = open(annotationFile, 'r', encoding="utf-8")
         try:
-            self._games = [m for m in self.readGames(f)]
+            self.games = [m for m in self.readGames(f)]
             #for m in self.readGames(f):
             #    print(m.turns[0])
         finally:
@@ -50,11 +48,11 @@ class HumanHumanTournament(Tournament):
                 turns = [turn for turn in game.readTurns(fh)]
                 line = fh.readline()
                 m = re.match(r"end:\"(?P<end>.+?)\", ?emotion:(?P<emotion>.+?), ?questions:(?P<questions>.+?), ?outcome:(?P<outcome>.+?)(, ?.*)", line)
-                game._end = m.group('end');
-                game._emotion = m.group('emotion');
-                game._questions = m.group('questions');
-                game._outcome = m.group('outcome');
-                game._turns = turns
+                game.end = m.group('end');
+                game.emotion = m.group('emotion');
+                game.questions = m.group('questions');
+                game.outcome = m.group('outcome');
+                game.turns = turns
                 #print(game._emotion)
                 yield(game)
 
@@ -64,26 +62,19 @@ class HumanHumanTournament(Tournament):
         #sum up the turns
         sumTurns = 0
         for m_idx,m in enumerate(t.games):
-            assert isinstance(m,Game)
-            assert type(m._turns) == list
+            assert isinstance(m, Game)
+            assert type(m.turns) == list
             print("  In game {0:d} there are {1:d} turns.".format(m_idx,len(m.turns)))
-            for tn_idx,tn in enumerate(m.turns()):
+            for tn_idx,tn in enumerate(m.turns):
                 assert isinstance(tn,Turn)
                 #further tests
-                sumTurns = sumTurns + len(m.turns())
+                sumTurns = sumTurns + len(m.turns)
 
         print("In all, there are {0:d} turns.".format(sumTurns))
 
 
 class Game(object):
     """An emo20q game instance"""
-
-    def turns(self):
-        return self._turns
-    def emotion(self):
-        return self._emotion
-
-
 
     def readTurns(self,fh):
         while True:
@@ -187,9 +178,9 @@ if __name__ == "__main__":
         # read in tournament
         t = HumanHumanTournament()
         assert isinstance(t, Tournament) # t is Tournament class
-        assert type(t.games() ) == list # games() returns a list
-        for g in t.games():
-            print(g.emotion())
+        assert type(t.games ) == list # games() returns a list
+        for g in t.games:
+            print(g.emotion)
     if args.webpage:  # if --html flag is used
         if not os.path.isdir(args.webpage):
             sys.exit(args.webpage + " must be a directory")
@@ -215,12 +206,12 @@ if __name__ == "__main__":
         <ul>
           {% for game in games %}
           <li>
-            <a href="{{ loop.index0 }}.html">  Game:{{ loop.index0}} </a>, 
-            Questioner: {{ game.questioner }}, Answerer: {{ game.answerer }}, 
-            Emotion: 
-              <a href="https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb={{ game.emotion() }}">
-                {{ game.emotion() }} </a>, 
-            Turns: {{ game.turns() |length }}
+            <a href="{{ loop.index0 }}.html">  Game:{{ loop.index0}} </a>,
+            Questioner: {{ game.questioner }}, Answerer: {{ game.answerer }},
+            Emotion:
+              <a href="https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb={{ game.emotion }}">
+                {{ game.emotion }} </a>,
+            Turns: {{ game.turns |length }}
           </li>
         {% endfor %}
         </ul>
@@ -242,13 +233,13 @@ if __name__ == "__main__":
               <li> Question: </li>
                 {% for word in cut(turn.q) %}
                 <a href="https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb={{ word }}">
-                {{ word }} 
+                {{ word }}
                 </a>
                 {% endfor %}
               <li> Answer:  </li>
                 {% for word in cut(turn.a) %}
                 <a href="https://www.mdbg.net/chinese/dictionary?page=worddict&wdrst=0&wdqb={{ word }}">
-                {{ word }} 
+                {{ word }}
                 </a>
                 {% endfor %}
             </ul>
@@ -262,14 +253,14 @@ if __name__ == "__main__":
         # read in tournament
         t = HumanHumanTournament()
         assert isinstance(t, Tournament) # t is Tournament class
-        assert type(t.games() ) == list # games() returns a list
-        games = [g for g in t.games()]
+        assert type(t.games ) == list # games() returns a list
+        games = [g for g in t.games]
         with open(os.path.join(args.webpage, "index.html"), "w") as f:
             print(index.render(games=games), file=f)
 
         for i, game in enumerate(games):
             with open(os.path.join(args.webpage, str(i)+".html"), "w") as f:
-                print(dialog.render(turns=game.turns(), cut=jieba.cut), file=f)
-            
+                print(dialog.render(turns=game.turns, cut=jieba.cut), file=f)
+
     else:
         parser.print_help()
